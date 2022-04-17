@@ -1,0 +1,40 @@
+<!DOCTYPE>
+<html>
+  <%- include('./partials/header.ejs')%>
+<body>
+    <div class="quizContainer container-fluid well well-lg">
+      <%- include('./partials/nav.ejs')%>
+        <div id="quiz1" class="text-center">
+			<h3>Welcome! <%= user.name%></h3>
+      <% if (user.gender == 'Male'){%>
+			<center><img class="img-responsive" height="180" width="180" src="/images/profileImage.png"></center>
+      <%}else{%>
+      <center><img class="img-responsive" height="180" width="180" src="/images/profileImage2.jpg"></center>
+      <% } %>
+			<div class="quizContainer container-fluid well well-lg">
+        	<h4 style="color:#FF0000;position:absolute;left:70%;top:30%;" align="center" ><span id="iTimeShow">Time Allowed: </span><br/>3 mins<span id='time' style="font-size:25px;"></span></h4>
+			    <h4 id="timeShow" style="color:#FF0000;position:absolute;right:70%;top:30%;" align="center" ><span id=""></span><br/><span id='time' style="font-size:25px;"></span></h4>
+            <div class="result"></div>
+      </div>
+      <h2>QMS Assessment</h2>
+		</div>
+        <div>
+          <div class="row justify-content-center">
+            <div class="card" style="width: 30rem;">
+                <div class="card-body row justify-content-center">
+                    <h5 class="card-title" style="font-size: 20px;"><b>Welcome to hot seat</b></h5>
+                    <h6 class="card-subtitle mb-2 text-muted" style="font-size: 20px;">Guide</h6>
+                     <p> This is a continuos assessment with <b>10</b> questions in total and it is graded over <b>20</b> which means
+                      each question carries <b>2</b> marks. You have <b>3 mins</b> to answer all the questions. When you re ready press Start
+                      to begin the test. May Allah make it easy
+                    </p>
+                    <a  class="btn btn-primary" href="/quiz"  style="text-decoration: none; color: white">Start</a>
+                </div>
+              </div>
+        </div>
+      </div>
+    </div>
+    <script src="/quiz.js"></script>
+    <%- include('./partials/footer.ejs')%>
+</body>
+  </html>
