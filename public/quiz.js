@@ -1,42 +1,42 @@
 var questions = [{
-    question: "1. What is the opposite of 'عجيف' ?",
-    choices: ["عجوز", "سمين", "نظيف"],
-    correctAnswer: 1
+    question: "1. How do you write 'Hello World' in an alert box?",
+    choices: ["msg('Hello World')", "msgBox('Hello World');", "alertBox('Hello World');", "alert('Hello World');"],
+    correctAnswer: 3
 }, {
-    question: "2. Mount of Uhud is now called?",
-    choices: ["mount of quraysh", "mount of archers", "mount everest"],
-    correctAnswer: 1
-}, {
-    question: "3. What is the meaning of حظيرة",
-    choices: ["hanger", "hangar", "airport"],
-    correctAnswer: 1
-}, {
-    question: "4. What is the name of the two students of Ibn Kathir al Makki?",
-    choices: ["Ad-Duri and As-Sousi", "Al-Bazi and Qunbul", "Khalaf and Khallad"],
-    correctAnswer: 1
-}, {
-    question: "5. 'إيمان' has which of the following pairs of enlogation?",
-    choices: ["asliyy and i'wad", "i'wad and badal", "badal and asliyy"],
+    question: "2. How to empty an array in JavaScript?",
+    choices: ["arrayList[]", "arrayList(0)", "arrayList.length=0", "arrayList.len(0)"],
     correctAnswer: 2
-},{
-	question: "6. Which riwayah do you recite with?",
-    choices: ["حفص عن الكسائى", " ورش عن عاصم", "حفص عن عاصم"],
-    correctAnswer: 2
-},{
-	question: "7. Which of these is not a battle fought in islam?",
-    choices: ["Khandaq", "Banu mustolaq", "Banu bashir"],
-    correctAnswer: 2
-},{
-	question: "8. What is the name of Imam Shaafi' ?",
-    choices: ["Muhammad Ibn Idrees", "Muhammad Ibn Ismaeel", "Ahmad Ibn Muhammad"],
+}, {
+    question: "3. What function to add an element at the begining of an array and one at the end?",
+    choices: ["push,unshift", "unshift,push", "first,push", "unshift,last"],
+    correctAnswer: 1
+}, {
+    question: "4. What will this output? var a = [1, 2, 3]; console.log(a[6]);",
+    choices: ["undefined", "0", "prints nothing", "Syntax error"],
+    correctAnswer: 0
+}, {
+    question: "5. What would following code return? console.log(typeof typeof 1);",
+    choices: ["string", "number", "Syntax error", "undefined"],
     correctAnswer: 0
 },{
-	question: "9. Leen letters are how many?",
-    choices: ["4", "3", "2"],
+	question: "6. Which software company developed JavaScript?",
+    choices: ["Mozilla", "Netscape", "Sun Microsystems", "Oracle"],
+    correctAnswer: 1
+},{
+	question: "7. What would be the result of 3+2+'7'?",
+    choices: ["327", "12", "14", "57"],
+    correctAnswer: 3
+},{
+	question: "8. Look at the following selector: $('div'). What does it select?",
+    choices: ["The first div element", "The last div element", "All div elements", "Current div element"],
     correctAnswer: 2
 },{
-	question: "10. The past tense of the word 'يشرب'",
-    choices: ["شرب", "أشرب", "اشرب"],
+	question: "9. How can a value be appended to an array?",
+    choices: ["arr(length).value;", "arr[arr.length]=value;", "arr[]=add(value);", "None of these"],
+    correctAnswer: 1
+},{
+	question: "10. What will the code below output to the console? console.log(1 +  +'2' + '2');",
+    choices: ["'32'", "'122'", "'13'", "'14'"],
     correctAnswer: 0
 }];
 
@@ -46,7 +46,6 @@ var viewingAns = 0;
 var correctAnswers = 0;
 var quizOver = false;
 var iSelectedAnswer = [];
-var timeShow = document.getElementById('timeShow');
 	var c=180;
 	var t;
 $(document).ready(function () 
@@ -119,7 +118,7 @@ $(document).ready(function ()
 				{
 					displayScore();
 					$('#iTimeShow').html('Quiz Time Completed!');
-					$('#time').html("You scored: " + correctAnswers + " out of: " + questions.length);
+					$('#timer').html("You scored: " + correctAnswers + " out of: " + questions.length);
 					c=185;
 					$(document).find(".preButton").text("View Answer");
 					$(document).find(".nextButton").text("Play Again?");
@@ -154,16 +153,16 @@ function timedCount()
 		}
 		
 		var hours = parseInt( c / 3600 ) % 24;
-		var minutes = parseInt( c / 60 ) % 60;
+		var minutes = parseInt( c / 180 ) % 60;
 		var seconds = c % 60;
 		var result = (hours < 10 ? "0" + hours : hours) + ":" + (minutes < 10 ? "0" + minutes : minutes) + ":" + (seconds  < 10 ? "0" + seconds : seconds);            
 		$('#timer').html(result);
 		
-		if(c == 0 )
+		if(c == 120 )
 		{
 					displayScore();
 					$('#iTimeShow').html('Quiz Time Completed!');
-					$('#timer').html("You scored: " + correctAnswers  + " out of: " + questions.length );
+					//$('#timer').html("You scored: " + correctAnswers + " out of: " + questions.length);
 					c=185;
 					$(document).find(".preButton").text("View Answer");
 					$(document).find(".nextButton").text("Play Again?");
@@ -253,7 +252,7 @@ function resetQuiz()
 
 function displayScore()
 {
-    $(document).find(".quizContainer > .result").text("You scored: " + correctAnswers + " out of: " + questions.length);
+    $(document).find(".quizContainer > .result").text("You scored: " + correctAnswers + " out of " + questions.length);
     $(document).find(".quizContainer > .result").show();
 }
 
@@ -300,7 +299,6 @@ function viewResults()
 		}
     }
 	
-	timeShow.innerHTML = "You scored: " + correctAnswers * 2 + " out of: " + questions.length * 2;
 	currentQuestion++;
 	
 	setTimeout(function()

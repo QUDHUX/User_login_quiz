@@ -1,9 +1,9 @@
 <!DOCTYPE>
 <html>
-  <%- include('./partials/header.ejs')%>
+ <%- include('./partials/header.ejs')%>
 <body>
     <div class="quizContainer container-fluid well well-lg">
-      <%- include('./partials/nav.ejs')%>
+      <%- include('./partials/navextra.ejs')%>
         <div id="quiz1" class="text-center">
 			<h3>Welcome! <%= user.name%></h3>
       <% if (user.gender == 'Male'){%>
@@ -13,10 +13,8 @@
       <% } %>
 			<div class="quizContainer container-fluid well well-lg">
         	<h4 style="color:#FF0000;position:absolute;left:70%;top:30%;" align="center" ><span id="iTimeShow">Time Allowed: </span><br/>3 mins<span id='time' style="font-size:25px;"></span></h4>
-			    <h4 id="timeShow" style="color:#FF0000;position:absolute;right:70%;top:30%;" align="center" ><span id=""></span><br/><span id='time' style="font-size:25px;"></span></h4>
-            <div class="result"></div>
       </div>
-      <h2>QMS Assessment</h2>
+      <h2>JavaScript Assessment</h2>
 		</div>
         <div>
           <div class="row justify-content-center">
