@@ -37,4 +37,4 @@ app.use('/auth', require('./routes/auth'));
 
 
 
-app.listen(5000, ()=> console.log(`listen to port 5000`));
+app.listen(process.env.PORT || 5000, ()=> console.log(`listen to port 5000`));
